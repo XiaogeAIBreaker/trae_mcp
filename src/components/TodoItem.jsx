@@ -57,13 +57,27 @@ function TodoItem({ todo, onToggle, onDelete, onEdit }) {
             className="edit-input"
           />
         ) : (
-          <span 
-            className="todo-text"
-            onDoubleClick={() => setIsEditing(true)}
-            title="双击编辑"
-          >
-            {todo.text}
-          </span>
+          <div className="todo-info">
+            <span 
+              className="todo-text"
+              onDoubleClick={() => setIsEditing(true)}
+              title="双击编辑"
+            >
+              {todo.text}
+            </span>
+            <div className="todo-meta">
+              {todo.priority && (
+                <span className={`priority-badge priority-${todo.priority}`}>
+                  {todo.priority === 'high' ? '高' : todo.priority === 'medium' ? '中' : '低'}
+                </span>
+              )}
+              {todo.dueDate && (
+                <span className="due-date">
+                  📅 {new Date(todo.dueDate).toLocaleDateString()}
+                </span>
+              )}
+            </div>
+          </div>
         )}
       </div>
 

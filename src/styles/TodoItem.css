@@ -69,3 +69,50 @@
 .todo-item.completed .todo-text::after {
   width: 100%;
 }
+
+.todo-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 4px;
+}
+
+.todo-meta {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.priority-badge {
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.priority-high {
+  background: #fed7d7;
+  color: #c53030;
+}
+
+.priority-medium {
+  background: #fef5e7;
+  color: #d69e2e;
+}
+
+.priority-low {
+  background: #e6fffa;
+  color: #38b2ac;
+}
+
+.due-date {
+  font-size: 0.8rem;
+  color: #718096;
+}
+
+.due-date.overdue {
+  color: #e53e3e;
+  font-weight: 600;
+}

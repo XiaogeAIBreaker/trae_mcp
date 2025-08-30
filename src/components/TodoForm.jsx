@@ -3,13 +3,19 @@ import '../styles/TodoForm.css';
 
 function TodoForm({ onAddTodo }) {
   const [inputValue, setInputValue] = useState('');
+  const [priority, setPriority] = useState('medium');
+  const [dueDate, setDueDate] = useState('');
   const [isFocused, setIsFocused] = useState(false);
+  const [showAdvanced, setShowAdvanced] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (inputValue.trim()) {
-      onAddTodo(inputValue.trim());
+      onAddTodo(inputValue.trim(), priority, dueDate || null);
       setInputValue('');
+      setPriority('medium');
+      setDueDate('');
+      setShowAdvanced(false);
     }
   };
 
@@ -37,6 +43,37 @@ function TodoForm({ onAddTodo }) {
           添加
         </button>
       </div>
+      
+      <button 
+        type="button" 
+        className="advanced-toggle"
+        onClick={() => setShowAdvanced(!showAdvanced)}
+      >
+        {showAdvanced ? '收起高级选项' : '显示高级选项'}
+      </button>
+
+      {showAdvanced && (
+        <div className="advanced-options">
+          <div className="form-group">
+            <label>优先级：</label>
+            <select value={priority} onChange={(e) => setPriority(e.target.value)} className="priority-select">
+              <option value="low">低</option>
+              <option value="medium">中</option>
+              <option value="high">高</option>
+            </select>
+          </div>
+          
+          <div className="form-group">
+            <label>截止日期：</label>
+            <input
+              type="date"
+              value={dueDate}
+              onChange={(e) => setDueDate(e.target.value)}
+              className="date-input"
+            />
+          </div>
+        </div>
+      )}
     </form>
   );
 }
