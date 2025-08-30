@@ -29,21 +29,30 @@
 - **LocalStorage** - 浏览器本地存储
 - **ES6+** - 现代JavaScript语法
 
-## 🛠️ 快速开始
+## 🚀 快速开始
 
-### 安装依赖
+### 在线体验
+**GitHub Pages**：https://XiaogeAIBreaker.github.io/trae_mcp
+
+### 本地开发
 ```bash
+# 安装依赖
 npm install
-```
 
-### 启动开发服务器
-```bash
+# 启动开发服务器
 npm run dev
+
+# 构建生产版本
+npm run build
+
+# 预览构建结果
+npm run preview
 ```
 
-### 构建生产版本
+### 部署到GitHub Pages
 ```bash
-npm run build
+# 一键部署（已配置）
+npm run deploy
 ```
 
 ## 📁 项目结构
